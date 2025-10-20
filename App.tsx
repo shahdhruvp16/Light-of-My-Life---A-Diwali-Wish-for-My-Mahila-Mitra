@@ -14,7 +14,7 @@ enum PageStep {
 }
 
 const MAHILA_MITRA_NAME = "My Dearest Friend";
-const VIDEO_URL = "InShot_20251020_075950691.mp4"; // Placeholder video
+const VIDEO_URL = "https://github.com/shahdhruvp16/Light-of-My-Life---A-Diwali-Wish-for-My-Mahila-Mitra/blob/main/InShot_20251020_075950691.mp4"; // Placeholder video
 const MUSIC_URL = "Website sound.mp3"; // Placeholder music
 
 const App: React.FC = () => {
