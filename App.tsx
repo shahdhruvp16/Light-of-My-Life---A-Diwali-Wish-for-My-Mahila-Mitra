@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import WelcomeScreen from './components/WelcomeScreen';
 import DiyasSection from './components/DiyasSection';
@@ -13,20 +14,23 @@ enum PageStep {
 }
 
 const MAHILA_MITRA_NAME = "My Dearest Friend";
-const VIDEO_URL = "https://www.instagram.com/reel/DP82-i-k6vV/?utm_source=ig_web_copy_link4"; // Placeholder
-const MUSIC_URL = "https://github.com/shahdhruvp16/Light-of-My-Life---A-Diwali-Wish-for-My-Mahila-Mitra/blob/main/public/Website%20sound.mp3";
+const VIDEO_URL = "https://www.instagram.com/reel/DP82-i-k6vV/?utm_source=ig_web_copy_link4"; // Placeholder video
+const MUSIC_URL = "https://github.com/shahdhruvp16/Light-of-My-Life---A-Diwali-Wish-for-My-Mahila-Mitra/blob/main/public/Website%20sound.mp3"; // Placeholder music
 
 const App: React.FC = () => {
   const [step, setStep] = useState<PageStep>(PageStep.WELCOME);
   const [isMusicPlaying, setIsMusicPlaying] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Play music on first interaction
   const playMusic = useCallback(() => {
     if (audioRef.current) {
-      audioRef.current.play().then(() => setIsMusicPlaying(true))
-      .catch(() => setIsMusicPlaying(false));
+      audioRef.current.play().then(() => {
+        setIsMusicPlaying(true);
+      }).catch(error => {
+        console.log("Audio playback failed:", error);
+        // Autoplay was prevented, user interaction is needed.
+        setIsMusicPlaying(false);
+      });
     }
   }, []);
 
@@ -36,21 +40,25 @@ const App: React.FC = () => {
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('keydown', handleFirstInteraction);
     };
+
     window.addEventListener('click', handleFirstInteraction);
     window.addEventListener('keydown', handleFirstInteraction);
-
+    
     return () => {
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('keydown', handleFirstInteraction);
     };
   }, [playMusic]);
-
-  // Toggle music
+  
   const toggleMusic = () => {
-    if (!audioRef.current) return;
-    if (isMusicPlaying) audioRef.current.pause();
-    else audioRef.current.play();
-    setIsMusicPlaying(!isMusicPlaying);
+    if (audioRef.current) {
+      if (isMusicPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsMusicPlaying(!isMusicPlaying);
+    }
   };
 
   const renderStep = () => {
@@ -62,29 +70,15 @@ const App: React.FC = () => {
       case PageStep.FIREWORKS:
         return <FireworksSection onComplete={() => setStep(PageStep.VIDEO)} />;
       case PageStep.VIDEO:
-        return (
-          <div className="flex justify-center items-center h-full w-full">
-            <video
-              ref={videoRef}
-              src={VIDEO_URL}
-              controls
-              autoPlay
-              loop
-              className="max-w-full max-h-full rounded-lg shadow-lg"
-            />
-          </div>
-        );
+        return <VideoSurprise videoUrl={VIDEO_URL} />;
       default:
         return <WelcomeScreen name={MAHILA_MITRA_NAME} onBegin={() => setStep(PageStep.DIYAS)} />;
     }
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
-      {/* Background music */}
+    <div className="relative min-h-screen w-full overflow-hidden">
       <audio ref={audioRef} src={MUSIC_URL} loop />
-
-      {/* Music toggle button */}
       <button
         onClick={toggleMusic}
         className="fixed top-4 right-4 z-50 p-2 bg-white/20 rounded-full text-white hover:bg-white/30 transition-colors"
@@ -92,8 +86,6 @@ const App: React.FC = () => {
       >
         {isMusicPlaying ? <UnmuteIcon /> : <MuteIcon />}
       </button>
-
-      {/* Main content */}
       <div className="transition-opacity duration-1000 ease-in-out">
         {renderStep()}
       </div>
@@ -101,4 +93,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App; Change this code som it can play
