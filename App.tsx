@@ -14,7 +14,7 @@ enum PageStep {
 }
 
 const MAHILA_MITRA_NAME = "My Dearest Friend";
-const VIDEO_URL = "https://github.com/shahdhruvp16/Light-of-My-Life---A-Diwali-Wish-for-My-Mahila-Mitra/blob/main/public/InShot_20251020_075950691.mp4"; // Placeholder video
+const VIDEO_URL = "https://www.instagram.com/reel/DP82-i-k6vV/?utm_source=ig_web_copy_link4"; // Placeholder video
 const MUSIC_URL = "https://github.com/shahdhruvp16/Light-of-My-Life---A-Diwali-Wish-for-My-Mahila-Mitra/blob/main/public/Website%20sound.mp3"; // Placeholder music
 
 const App: React.FC = () => {
