@@ -14,8 +14,8 @@ enum PageStep {
 }
 
 const MAHILA_MITRA_NAME = "My Dearest Friend";
-const VIDEO_URL = "InShot_20251020_075950691.mp4"; // Placeholder video
-const MUSIC_URL = "Website sound.mp3"; // Placeholder music
+const VIDEO_URL = "https://drive.google.com/file/d/1et7_VVVwUvpOdol7afxmXgVwRudCULIP/view?usp=sharing"; // Placeholder video
+const MUSIC_URL = "https://drive.google.com/file/d/1QJCAik9UV2bxu4ZIFTIwNoGWrmPxMNrs/view?usp=sharing"; // Placeholder music
 
 const App: React.FC = () => {
   const [step, setStep] = useState<PageStep>(PageStep.WELCOME);
