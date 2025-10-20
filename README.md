@@ -1,20 +1,30 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img width="1200" height="475" alt="DiwaliBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# 🌸 Light of My Life – Happy Diwali to My Mahila Mitra 🪔✨
 
-This contains everything you need to run your app locally.
+An interactive and heartfelt **Diwali wishing website** created to celebrate the festival of lights with a personal touch — made especially for my *Mahila Mitra*.  
+The website unfolds like a warm Diwali story with glowing diyas, soothing music, and a surprise **video message** at the end. 🎥💖
 
-View your app in AI Studio: https://ai.studio/apps/drive/1uU1-YCdmtxOPmZUVajNsZOy-KJb8CxOK
+---
 
-## Run Locally
+## ✨ Live Demo
+🔗 [View Website on AI Studio](https://ai.studio/apps/drive/1uU1-YCdmtxOPmZUVajNsZOy-KJb8CxOK)
 
-**Prerequisites:**  Node.js
+---
 
+## 💻 Run Locally
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+**Prerequisites:**  
+- Node.js installed (v16+ recommended)  
+- Gemini API Key (for personalized wish generation if included)
+
+---
+
+### 🪔 Steps to Run
+
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/yourusername/diwali-mahila-mitra.git
+   cd diwali-mahila-mitra
