@@ -93,4 +93,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App; Change this code som it can play
+export default App; 
